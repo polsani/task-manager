@@ -1,0 +1,37 @@
+# Compiled class file
+.class
+
+# Log file
+*.log
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Gradle build metadata
+.gradle/
+
+# Eclipse meta files
+.settings
+.project
+
+target
+*/target
+
+bin
+*/bin
+
+build
+*/build
+
+*/.classpath
+
+.sonarlint/
+
+.metadata/
+
+.recommenders/
