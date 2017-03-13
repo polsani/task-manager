@@ -16,7 +16,7 @@ import org.junit.Test;
 
 import br.com.polsani.taskmanager.core.domain.Task;
 import br.com.polsani.taskmanager.service.task.TaskServiceImpl;
-import br.com.polsani.taskmanager.store.task.contract.TaskStore;
+import br.com.polsani.taskmanager.store.task.TaskStore;
 
 public class TaskServiceImplTests {
 	
@@ -59,10 +59,11 @@ public class TaskServiceImplTests {
 	}
 	
 	@Test
-	public void requestGetMyTasksPerformsStoreGetAll() {
-		subject.getTasks();
+	public void requestGetTaskPerformsStoreGetAll() {
+		String id = "Id";
+		subject.getTask(id);
 		
-		verify(taskStore).getAll();
+		verify(taskStore).get(id);
 	}
 	
 	@Test
@@ -79,4 +80,19 @@ public class TaskServiceImplTests {
 		verify(taskStore).getAll();
 		assertThat(retrivedTasks.size(), equalTo(1));
 	}
+	
+	@Test
+	public void requestAddTaskPerformsStoreSave() {
+		subject.addTask(task);
+		
+		verify(taskStore).save(task);
+	}
+	
+	@Test
+	public void requestDeleteTaskPerformsStoreDelete() {
+		String id = "Id";
+		subject.deteleTask(id);
+		
+		verify(taskStore).delete(id);
+	}	
 }

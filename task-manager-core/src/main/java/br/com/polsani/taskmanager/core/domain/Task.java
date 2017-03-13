@@ -2,26 +2,26 @@ package br.com.polsani.taskmanager.core.domain;
 
 import java.util.Date;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "task")
 public class Task {
 	
+	@Id
+	private String id;
 	private String title;
 	private boolean done;
 	private Date dueDate;
-	private User user;
 	
 	public Task() {
 		
 	}
-	
+		
 	public Task(String title, boolean done, Date dueDate) {
-		this(title, done, dueDate, null);
-	}
-	
-	public Task(String title, boolean done, Date dueDate, User user) {
 		this.title = title;
 		this.done = done;
 		this.dueDate = dueDate;
-		this.user = user;
 	}
 	
 	public String getTitle() {
@@ -46,13 +46,5 @@ public class Task {
 	
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
-	}
-	
-	public User getUser() {
-		return user;
-	}
-	
-	public void setUser(User user) {
-		this.user = user;
 	}
 }

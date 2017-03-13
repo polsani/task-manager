@@ -4,8 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.polsani.taskmanager.core.domain.Task;
+import br.com.polsani.taskmanager.core.exceptions.TaskPersistenceException;
 import br.com.polsani.taskmanager.edge.task.endpoint.TaskController;
-import br.com.polsani.taskmanager.service.task.contract.TaskService;
+import br.com.polsani.taskmanager.service.task.TaskService;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -31,7 +32,7 @@ public class TaskControllerTests {
 	}
 	
 	@Test
-	public void requestAddTaskPerformsServiceAddTask() {
+	public void requestAddTaskPerformsServiceAddTask() throws TaskPersistenceException {
 		subject.addTask(task);
 		
 		verify(taskService).addTask(task);

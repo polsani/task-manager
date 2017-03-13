@@ -10,8 +10,7 @@ repositories {
 
 dependencies {
 	compile project(':task-manager-core')
-	compile project(':task-manager-service-task-contract')
-	compile project(':task-manager-store-task-contract')
+	compile project(':task-manager-store-task')
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'1.5.2.RELEASE'
 	testCompile group: 'junit', name: 'junit', version: '4.12'
 	testCompile group: 'org.mockito', name: 'mockito-core', version:'2.7.13'
